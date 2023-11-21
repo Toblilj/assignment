@@ -5,47 +5,27 @@ import java.util.Scanner;
 
 public class Asscl1 {
 
-   //attribut
+    //attribut
+    private StringBuilder inputStringbuilder = new StringBuilder();
     private String ord;
     private int numOfLines;
     private int numOfChars;
     private int numOfWords;
 
-    Scanner scan = new Scanner(System.in);
 
+    //konstruktor
+    //räknar ut värdet på user inskrivna ord
+    public void Asscl1(String input) {
+        ord = input;
+        inputStringbuilder.append(ord).append("\n");
+        numOfChars += ord.length();
+        numOfWords += ord.split("\\s+").length;
+        numOfLines++;
 
-//konstruktor
-    public Object setInput() {
-        StringBuilder inputStringbuilder = new StringBuilder();
-        while (true) {
-            System.out.println("Please enter a word or write exit to stop the program");
-            ord = scan.nextLine();
-            if (ord.equalsIgnoreCase("exit")) {
-                break;
-            } else {
-                inputStringbuilder.append(ord).append("\n");
-                numOfChars += ord.length();
-                numOfWords += ord.split("\\s+").length;
-                numOfLines++;
-
-            }
-
-        }
-        ord = inputStringbuilder.toString().trim();
-        return ord;
-    }
-
-
-    //metoden för att skriva ut datan ifrån classen
-    public void printText() {
-        System.out.println(ord);
-        System.out.println("Your total number of characters is: " + numOfChars);
-        System.out.println("Your total number of words is: " + numOfWords);
-        System.out.println("Your total number of line is: " + numOfLines);
 
     }
 
-
+        //setters och getters för mina variabler, för mina testcases och printText metod.
     public String getOrd() {
         return ord;
     }
@@ -61,6 +41,14 @@ public class Asscl1 {
 
     public int getNumOfChars() {
         return numOfChars;
+    }
+
+    public int getNumOfWords() {
+        return numOfWords;
+    }
+
+    public void setNumOfWords(int numOfWords) {
+        this.numOfWords = numOfWords;
     }
 
     public void setNumOfChars(int numOfChars) {
